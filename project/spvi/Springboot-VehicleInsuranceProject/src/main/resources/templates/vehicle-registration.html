@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration Page</title>
+<head>
+ 
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+        /* *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        } */
+         
+        body {
+            background: url('/image/clrbg.jpg');
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        form {
+            height: 700x;
+            width: 500px;
+            background-color: rgba(177, 176, 176, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(10, 10, 10, 0.6);
+            padding: 15px 45px;
+        }
+        
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        
+        form h3 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
+        
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        input {
+            display: block;
+            height: 30px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        
+         ::placeholder {
+            color: grey;
+        }
+        
+        .button {
+            margin-top: 20px;
+            width: 50%;
+            background-color: #ffffff;
+            color: #080710;
+            text-align:center;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left:100px;
+        }
+        
+        .button:hover{
+        	background:grey;
+        	color:#ffffff;
+        }
+        
+        .social {
+            margin-top: 40px;
+        }
+        
+        .social a {
+            border-radius: 3px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.27);
+            text-align: center;
+            margin-left: 160px;
+            text-decoration: none;
+        }
+        
+        .social a:hover {
+            background-color: rgba(56, 55, 55, 0.47);
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+    
+</head>
+<body>
+<!-- <a href="javascript:history.back()">Go Back</a> -->
+ <form action="#" th:action="@{/addvehicle}" th:object="${vehicle}"  method="post">
+  <h3>Register Here</h3>
+<label for="veh_name">VehicleName</label>
+<input type="text" th:field="*{veh_name}"  class = ""  name="VehicleName" placeholder="Enter Your VehicleName"/>
+<label for="user">UserId</label>
+<input type="text" th:field="*{user}" class = "" name="userId" th:value=${uId} placeholder="Enter Your UserId"/>
+<label for="category">Category</label>
+<input type="category" th:field="*{category}" class = "" name="Category" placeholder="Enter Your Vehicle Category"/> 
+<label for="category">Manufacture</label>
+<input type="manufacture" th:field="*{manufacture}" class = "" name="manufacture" placeholder="Enter Your Vehicle Manufacturer Name"/>
+<label for="category">PlateNumber</label>
+<input type="plateNumber" th:field="*{plateNumber}"  class = "" name="PlateNumber" placeholder="Enter Your PlateNumber"/>
+<label for="category">Type</label>
+<input type="type" th:field="*{type}"  class = "" name="type" placeholder="Enter Your VehicleType"/>
+<label for="category">Color</label>
+<input type="text" th:field="*{color}" class = ""  name="color" placeholder="Enter Your VehicleColor"/>
+<label for="category">RegistrationDate</label>
+<input type="registrationDate" th:field="*{registrationDate}" class = ""  name="registrationDate"  placeholder="Enter Your Vehicle Registratered Date"/>
+<br>
+<form th:action="@{/successfullyRegistered}" method="get">    <!--     " it has to update in myprofile -->
+<button type="submit" class="btn btn-success btn-block">Register</button>
+
+</form>
+<button onclick="history.back()" >Home</button>
+<!--  input type="Submit" /--->
+<!-- <input type="reset" />-->
+
+
+
+
+</form>
+
+</body>
+</html>

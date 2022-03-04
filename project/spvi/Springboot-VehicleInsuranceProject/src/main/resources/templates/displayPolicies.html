@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+      <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<p th:text="'Hello, '+${uId}+ '!' " />
+<!-- '''''''''''''''''''''''''''''''''''''''''''''''''page for user'''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+<button onclick="history.back()">Home</button>
+<style>
+body{
+background-image:url('/image/clrbg.jpg');
+}
+</style>
+
+ <div class ="container">
+		<div class = "row">
+			<h1> Policies Detail </h1>
+		</div>
+		
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/insurance}" class = "btn btn-primary btn-sm mb-3"> </a>
+			</div>
+		</div>
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+					<th>  Provider</th>
+					<th>  InsuranceId</th>
+					<th>   InsuranceNumber</th>
+					<th>   Tenure </th>
+					<th>  Description </th>
+					<th> Premium </th>
+					<th> ClaimSettlement </th>
+					<th> actions </th>
+					
+					
+				</tr>
+			</thead>
+
+<h1></h1>
+ <div>
+ <tr th:each="insurance: ${displayPolicies}">
+    <td th:text="${insurance.provider}" />
+    <td th:text="${insurance.ins_id}"/>
+     <td th:text="${insurance.ins_Number}" />
+      <td th:text="${insurance.tenure}" />
+       <td th:text="${insurance.description}" />
+        <td th:text="${insurance.premium}" />
+         <td th:text="${insurance.claimSettlement}" />
+       <td>
+     
+						 <a th:href = "@{/purchase/{userId}(userId=${uId}+' '+${insurance.ins_id})}"
+						 class = "btn btn-primary">Purchase</a>
+						
+			</td>
+			<td>
+			 <!--  a th:href = "@{/listOfPolicies/delete/{ins_id}(ins_id=${insurance.ins_id})}"
+						 class = "btn btn-danger">Delete</a-->			
+						
+     </td>
+    
+    
+</tr>
+
+</div>
+
+</body>
+</html>
